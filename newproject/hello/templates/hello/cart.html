@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title_name %}Корзина{% endblock %}
+
+{% block content %}
+<h1>Корзина</h1>
+{% if items %}
+    <ul>
+    {% for item in items %}
+        <li>
+            {{ item.book.title }} —
+            Кол-во: {{ item.quantity }}
+            <form action="{% url 'increase_quantity' item.cartitemid %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">+</button>
+            </form>
+            <form action="{% url 'decrease_quantity' item.cartitemid %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">−</button>
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+    <form action="{% url 'clear_cart' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn">Очистить корзину</button>
+    </form>
+    <form action="{% url 'make_order' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn">Сделать заказ</button>
+</form>
+{% else %}
+    <p>Ваша корзина пуста.</p>
+{% endif %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
+

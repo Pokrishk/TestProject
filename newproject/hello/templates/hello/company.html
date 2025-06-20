@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title_name %}О компании{% endblock %}
+
+{% block link_style %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'style/about.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>О компании</h1>
+
+<p>Мы — современная компания, специализирующаяся на продаже качественных товаров.</p>
+
+<section>
+    <h2>Наши преимущества</h2>
+    <ul>
+        <li>Широкий ассортимент продукции</li>
+        <li>Высокое качество товаров</li>
+        <li>Гибкая система скидок</li>
+        <li>Быстрая доставка</li>
+    </ul>
+</section>
+
+<div>
+    <h2>Контакты <span>▼</span></h2>
+    <div>
+        <p><strong>Телефон:</strong> +7 (000) 000-00-00</p>
+        <p><strong>Email:</strong> info@company.com</p>
+        <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
+    </div>
+</div>
+
+<div>
+    <h2>Карта проезда <span>▼</span></h2>
+    <div>
+        <iframe 
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a2b3c4d5e6f7g8h9i0j&amp;source=constructor" 
+            width="100%" 
+            height="400" 
+            frameborder="0">
+        </iframe>
+    </div>
+</div>
+{% endblock %}

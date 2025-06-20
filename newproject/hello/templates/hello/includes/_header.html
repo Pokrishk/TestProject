@@ -1,0 +1,17 @@
+<header>
+    <div class="header-content">
+        <h4>Магазин для заказа бумажных и электронных книг</h4>
+        <nav>
+            <a href="{% url 'index' %}">Главная</a>
+            <a href="{% url 'company' %}">О компании</a>
+            <a href="{% url 'catalog' %}">Продукция</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'cart_view' %}">Корзина</a>
+                <a href="{% url 'logout' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a>
+                <a href="{% url 'register' %}">Регистрация</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
