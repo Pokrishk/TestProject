@@ -17,7 +17,7 @@ class Book(models.Model):
 
     class Meta:
         db_table = 'book'  
-        managed = False  
+          
 
     def __str__(self):
         return self.title
@@ -43,7 +43,7 @@ class Role(models.Model):
 
     class Meta:
         db_table = 'role'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -71,7 +71,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         db_table = 'useraccount'
-        managed = False
+        
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
@@ -82,7 +82,7 @@ class Cart(models.Model):
 
     class Meta:
         db_table = 'cart'
-        managed = False
+        
 
 class CartItem(models.Model):
     cartitemid = models.AutoField(db_column='cartitemid', primary_key=True)
@@ -92,7 +92,7 @@ class CartItem(models.Model):
 
     class Meta:
         db_table = 'cartitem'
-        managed = False
+        
 
 class OrderStatus(models.Model):
     orderstatusid = models.AutoField(db_column='orderstatusid', primary_key=True)
@@ -101,7 +101,7 @@ class OrderStatus(models.Model):
 
     class Meta:
         db_table = 'orderstatus'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -115,7 +115,7 @@ class DeliveryMethod(models.Model):
 
     class Meta:
         db_table = 'deliverymethod'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -129,7 +129,7 @@ class Publisher(models.Model):
 
     class Meta:
         db_table = 'publisher'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -142,7 +142,7 @@ class Format(models.Model):
 
     class Meta:
         db_table = 'format'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -158,7 +158,7 @@ class Author(models.Model):
 
     class Meta:
         db_table = 'author'
-        managed = False
+        
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
@@ -171,7 +171,7 @@ class Genre(models.Model):
 
     class Meta:
         db_table = 'genre'
-        managed = False
+        
 
     def __str__(self):
         return self.name
@@ -184,7 +184,7 @@ class BookGenres(models.Model):
 
     class Meta:
         db_table = 'bookgenres'
-        managed = False
+        
 
 
 class OrderTable(models.Model):
@@ -197,7 +197,7 @@ class OrderTable(models.Model):
 
     class Meta:
         db_table = 'ordertable'
-        managed = False
+        
 
 
 class OrderItem(models.Model):
@@ -208,4 +208,4 @@ class OrderItem(models.Model):
 
     class Meta:
         db_table = 'orderitem'
-        managed = False
+        
